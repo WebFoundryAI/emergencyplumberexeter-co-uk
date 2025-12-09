@@ -424,3 +424,51 @@ export function generateWebPageSchema(
     },
   };
 }
+
+export function generateServicesListSchema(
+  services: Array<{ name: string; slug: string; description: string }>
+): SchemaOrgObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Drainage Services by ${BRAND.brandName}`,
+    description: `Professional drainage services available across ${BRAND.serviceAreaLabel}`,
+    numberOfItems: services.length,
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: service.name,
+        description: service.description,
+        url: `https://${BRAND.domain}/services/${service.slug}`,
+        provider: {
+          "@type": "LocalBusiness",
+          "@id": `https://${BRAND.domain}/#localbusiness`,
+          name: BRAND.brandName,
+        },
+      },
+    })),
+  };
+}
+
+export function generateLocationsListSchema(
+  locations: Array<{ name: string; slug: string }>
+): SchemaOrgObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Areas Covered by ${BRAND.brandName}`,
+    description: `Service areas across ${BRAND.serviceAreaLabel}`,
+    numberOfItems: locations.length,
+    itemListElement: locations.map((location, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Place",
+        name: location.name,
+        url: `https://${BRAND.domain}/location/${location.slug}`,
+      },
+    })),
+  };
+}

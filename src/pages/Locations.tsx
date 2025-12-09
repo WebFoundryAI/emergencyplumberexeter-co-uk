@@ -4,15 +4,16 @@ import { CTASection } from "@/components/sections/CTASection";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { BRAND } from "@/config/brand";
+import { LOCATIONS } from "@/config/locations";
 import { getLocationsSEO } from "@/config/seo";
-import { generateLocalBusinessSchema } from "@/lib/schema";
+import { generateLocalBusinessSchema, generateLocationsListSchema } from "@/lib/schema";
 import { Link } from "react-router-dom";
 
 const Locations = () => {
   return (
     <Layout>
       <SEOHead metadata={getLocationsSEO()} />
-      <SchemaScript schema={generateLocalBusinessSchema()} />
+      <SchemaScript schema={[generateLocalBusinessSchema(), generateLocationsListSchema(LOCATIONS)]} />
 
       <section className="hero-section">
         <div className="hero-overlay py-16 md:py-20">

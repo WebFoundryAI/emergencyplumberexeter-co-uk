@@ -6,14 +6,15 @@ import { SchemaScript } from "@/components/seo/SchemaScript";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { BRAND } from "@/config/brand";
 import { PRIMARY_LOCATION } from "@/config/locations";
+import { SERVICES } from "@/config/services";
 import { getServicesSEO } from "@/config/seo";
-import { generateLocalBusinessSchema } from "@/lib/schema";
+import { generateLocalBusinessSchema, generateServicesListSchema } from "@/lib/schema";
 
 const Services = () => {
   return (
     <Layout>
       <SEOHead metadata={getServicesSEO()} />
-      <SchemaScript schema={generateLocalBusinessSchema()} />
+      <SchemaScript schema={[generateLocalBusinessSchema(), generateServicesListSchema(SERVICES)]} />
 
       <section className="hero-section">
         <div className="hero-overlay py-16 md:py-20">
