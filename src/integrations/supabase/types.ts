@@ -140,6 +140,30 @@ export type Database = {
         }
         Relationships: []
       }
+      sitemap_status: {
+        Row: {
+          created_at: string
+          generated_by: string | null
+          id: string
+          last_generated_at: string
+          url_count: number
+        }
+        Insert: {
+          created_at?: string
+          generated_by?: string | null
+          id?: string
+          last_generated_at?: string
+          url_count?: number
+        }
+        Update: {
+          created_at?: string
+          generated_by?: string | null
+          id?: string
+          last_generated_at?: string
+          url_count?: number
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -166,6 +190,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_sitemap_stale: { Args: never; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
-import { Download, RefreshCw, Check, FileText } from "lucide-react";
+import { Download, RefreshCw, Check, FileText, AlertTriangle } from "lucide-react";
 import { SERVICES } from "@/config/services";
 import { LOCATIONS } from "@/config/locations";
 import { BRAND } from "@/config/brand";
@@ -15,11 +16,20 @@ interface BlogPost {
   updated_at: string;
 }
 
+interface SitemapStatus {
+  id: string;
+  last_generated_at: string;
+  url_count: number;
+  generated_by: string | null;
+}
+
 const AdminSitemap = () => {
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedXml, setGeneratedXml] = useState<string | null>(null);
 
+  // Fetch blog posts
   const { data: blogPosts } = useQuery({
     queryKey: ["admin-sitemap-blog-posts"],
     queryFn: async () => {
@@ -32,8 +42,69 @@ const AdminSitemap = () => {
     },
   });
 
+  // Fetch sitemap status
+  const { data: sitemapStatus } = useQuery({
+    queryKey: ["sitemap-status"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("sitemap_status")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (error) throw error;
+      return data as SitemapStatus | null;
+    },
+  });
+
+  // Check if sitemap is stale
+  const { data: isStale } = useQuery({
+    queryKey: ["sitemap-stale"],
+    queryFn: async () => {
+      const { data, error } = await supabase.rpc("check_sitemap_stale");
+      if (error) throw error;
+      return data as boolean;
+    },
+  });
+
+  // Update sitemap status mutation
+  const updateStatusMutation = useMutation({
+    mutationFn: async (urlCount: number) => {
+      const { data: user } = await supabase.auth.getUser();
+      
+      if (sitemapStatus?.id) {
+        const { error } = await supabase
+          .from("sitemap_status")
+          .update({
+            last_generated_at: new Date().toISOString(),
+            url_count: urlCount,
+            generated_by: user?.user?.email || "admin",
+          })
+          .eq("id", sitemapStatus.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("sitemap_status")
+          .insert({
+            last_generated_at: new Date().toISOString(),
+            url_count: urlCount,
+            generated_by: user?.user?.email || "admin",
+          });
+        if (error) throw error;
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["sitemap-status"] });
+      queryClient.invalidateQueries({ queryKey: ["sitemap-stale"] });
+    },
+  });
+
   const formatDate = (date: Date): string => {
     return date.toISOString().split("T")[0];
+  };
+
+  const formatDateTime = (dateStr: string): string => {
+    return new Date(dateStr).toLocaleString();
   };
 
   const generateUrlEntry = (
@@ -50,7 +121,7 @@ const AdminSitemap = () => {
   </url>`;
   };
 
-  const generateSitemap = () => {
+  const generateSitemap = async () => {
     setIsGenerating(true);
     
     try {
@@ -134,6 +205,10 @@ ${urls.join("\n")}
 </urlset>`;
 
       setGeneratedXml(xml);
+      
+      // Update status in database
+      await updateStatusMutation.mutateAsync(urls.length);
+      
       toast({
         title: "Sitemap Generated",
         description: `Generated sitemap with ${urls.length} URLs`,
@@ -191,6 +266,48 @@ ${urls.join("\n")}
   return (
     <AdminLayout title="Sitemap Manager">
       <div className="space-y-6">
+        {/* Stale Warning */}
+        {isStale && (
+          <Alert className="border-amber-500/50 bg-amber-500/10">
+            <AlertTriangle className="h-4 w-4 text-amber-600" />
+            <AlertDescription className="text-amber-700">
+              <strong>Sitemap is out of date!</strong> Blog posts have been updated since the last sitemap generation. 
+              Please regenerate and download the new sitemap.
+            </AlertDescription>
+          </Alert>
+        )}
+
+        {/* Status */}
+        {sitemapStatus && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-lg">Last Generation</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Generated at:</span>
+                  <span>{formatDateTime(sitemapStatus.last_generated_at)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">URL count:</span>
+                  <span>{sitemapStatus.url_count}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Generated by:</span>
+                  <span>{sitemapStatus.generated_by || "Unknown"}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Status:</span>
+                  <span className={isStale ? "text-amber-600 font-medium" : "text-green-600 font-medium"}>
+                    {isStale ? "⚠️ Needs regeneration" : "✓ Up to date"}
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* Stats */}
         <div className="grid gap-4 md:grid-cols-4">
           <Card>
@@ -231,7 +348,7 @@ ${urls.join("\n")}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button onClick={generateSitemap} disabled={isGenerating}>
                 {isGenerating ? (
                   <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
@@ -281,7 +398,7 @@ ${urls.join("\n")}
             <p>3. Replace the <code className="bg-muted px-1 rounded">public/sitemap.xml</code> file in your project with the downloaded file.</p>
             <p>4. Deploy the changes to update the live sitemap.</p>
             <p className="text-primary font-medium mt-4">
-              Tip: After updating, you can request re-indexing in Google Search Console.
+              Note: You'll see a warning banner when blog posts are updated and the sitemap needs regeneration.
             </p>
           </CardContent>
         </Card>
