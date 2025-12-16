@@ -43,7 +43,7 @@ export function RouteSEOHead({ override, ogImage }: RouteSEOHeadProps = {}) {
       {seo.noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
       )}
 
       {/* Open Graph / Facebook */}
