@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 // Component to redirect to static sitemap.xml file
 const SitemapXmlRedirect = () => {
@@ -11,6 +11,27 @@ const SitemapXmlRedirect = () => {
   return null;
 };
 import { ScrollToTop } from "./components/ScrollToTop";
+
+// Canonical URL normalizer - ensures consistent trailing slash format
+// Uses replaceState to avoid adding history entries
+const CanonicalNormalizer = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    const { pathname, search, hash } = location;
+    
+    // Skip static files and root path
+    if (pathname === "/" || pathname.includes(".")) return;
+    
+    // Add trailing slash if missing (to match sitemap convention)
+    if (!pathname.endsWith("/")) {
+      const normalizedUrl = `${pathname}/${search}${hash}`;
+      window.history.replaceState(null, "", normalizedUrl);
+    }
+  }, [location]);
+  
+  return null;
+};
 
 // Critical page - loaded immediately for first paint
 import Index from "./pages/Index";
@@ -56,6 +77,7 @@ const App = () => (
     <Toaster />
     <BrowserRouter>
         <ScrollToTop />
+        <CanonicalNormalizer />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
