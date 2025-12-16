@@ -157,6 +157,22 @@ export function generateLocalBusinessSchema(
         "@type": "City",
         name: "Royal Wootton Bassett",
       },
+      {
+        "@type": "City",
+        name: "Highworth",
+      },
+      {
+        "@type": "City",
+        name: "Purton",
+      },
+      {
+        "@type": "City",
+        name: "Cricklade",
+      },
+      {
+        "@type": "City",
+        name: "Wroughton",
+      },
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
