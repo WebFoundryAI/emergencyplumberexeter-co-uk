@@ -69,17 +69,81 @@ At Blocked Drains Swindon, we understand the specific drainage challenges faced 
 If you are experiencing drain problems in Wroughton or need assistance with maintenance, contact Blocked Drains Swindon today. Let us help restore the comfort and safety of your home with our expert drain services.`,
 
   // ===== SERVICES =====
-  "service:blocked-drains": `Blocked Drains Swindon offers professional services to identify and resolve issues related to blocked drains in residential and commercial properties throughout Swindon. Blocked drains often lead to significant inconvenience, as they can result in unpleasant odours, pooling water, and even severe water damage if left untreated. It's essential to address such issues promptly to avoid further complications.
+  "service:blocked-drains": `Drain Unblocking in Swindon – Fast, Fixed-Price Service
 
-Blocked drains can occur for a variety of reasons. In typical UK homes, common causes include the accumulation of grease, hair, food debris, or foreign objects that find their way into the drainage system. Over time, these materials can create blockages that hinder the normal flow of water, resulting in slow drainage or complete stoppage. Seasonal factors, such as the shedding of leaves in autumn, can also contribute to clogged outdoor drains.
+Blocked drain in your home or business? Our Swindon-based drainage team provides fast, professional drain unblocking with no hidden charges. We clear internal and external blockages using industry-grade equipment.
 
-When faced with signs of blocked drains, it is crucial to act swiftly. Some warning signs include gurgling sounds from sinks and toilets, water pooling around drains, and unpleasant smells emanating from your plumbing fixtures. If you notice any of these issues, it is advisable to seek professional assistance rather than attempting a DIY fix, which can sometimes exacerbate the problem.
+What We Clear
 
-At Blocked Drains Swindon, our process begins with a thorough inspection of your drainage system. Using advanced CCTV technology, we can pinpoint the exact location and cause of the blockage without unnecessary disruption to your property. This enables us to formulate an effective and tailored solution. Once the assessment is complete, our trained technicians will employ methods such as high-pressure water jetting or drain rodding to clear the blockage safely and efficiently. Our goal is to restore your drains to optimal working condition with minimal inconvenience.
+From slow sinks to overflowing manholes, we deal with all drain blockages. Our local engineers use mechanical rodding and high-pressure jetting to clear:
 
-We understand that blocked drains can happen at any time, which is why we offer a swift response service to our customers across Swindon. Our team is available to assist you with any drainage problem, ensuring your home remains functional and comfortable.
+• Blocked toilets
+• Slow or standing kitchen drains
+• Smelly or gurgling sinks
+• Blocked gullies and outside drains
+• Flooded patios and basements
 
-If you're experiencing issues with blocked drains, don't wait for the problem to escalate. Contact Blocked Drains Swindon today for a reliable and effective solution. Let us help you restore the flow of your drains and maintain the integrity of your plumbing system.`,
+Why Are My Drains Blocked?
+
+Most blockages are caused by:
+
+• Wet wipes, sanitary items or grease buildup
+• Tree root ingress or collapsed pipes
+• Foreign objects in toilets or gullies
+• Heavy rainfall and poor water flow
+
+Not sure what's causing it? We can diagnose and clear your drain in one visit.
+
+Trusted By Hundreds Across Swindon
+
+We've helped homeowners, landlords and commercial sites across:
+
+• Old Town
+• Cheney Manor
+• Wroughton
+• Rodbourne
+• Royal Wootton Bassett
+
+"Unblocked our kitchen drain same-day. Arrived on time, no mess, and great price." – Helen C., Stratton
+
+"Drain kept backing up. They did a CCTV inspection and cleared the root issue. 5 stars." – Lee R., West Swindon
+
+What It Costs
+
+Drain unblocking in Swindon starts from £89 + VAT. Prices vary depending on:
+
+• Internal vs. external blockage
+• Severity and access
+• Time of day (standard or emergency call-out)
+
+No call-out charges. You'll get a fixed quote before we begin.
+
+Follow-On Services (If Needed)
+
+If the issue returns or pipe damage is found, we also offer:
+
+• CCTV drain surveys with video footage
+• Patch repairs and drain lining
+• Drain jetting and descaling
+• Full drain replacement quotes
+
+FAQ: Drain Unblocking in Swindon
+
+Do you clear both internal and external drains?
+Yes. We unblock sinks, toilets, rainwater gullies, manholes and mainlines.
+
+Will I need a CCTV survey?
+Only if we suspect damage or the blockage is recurring. We'll let you know.
+
+Do you charge call-out fees?
+No call-out fee. All pricing is agreed before any work.
+
+Are you insured and licensed?
+Yes – fully insured, licensed waste handlers, and all work is guaranteed.
+
+Book Your Drain Unblocking Today
+
+Call: 01793 487489 or book online. Same-day bookings available. Most jobs done in under 60 minutes.`,
 
   "service:cctv-drain-surveys": `CCTV Drain Surveys are an essential service provided by Blocked Drains Swindon, designed to identify and diagnose issues within your drainage system without the need for invasive digging or excavation. This advanced technology uses a high-resolution camera mounted on flexible rods that are inserted into your drains. This camera transmits live video footage back to a monitor, allowing our trained professionals to inspect the condition of the pipes in real-time.
 
