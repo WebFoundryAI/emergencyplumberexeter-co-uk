@@ -420,17 +420,83 @@ Once the investigation is complete, we will provide you with a detailed report o
 
 If you are experiencing drainage problems in your Swindon home or business, do not hesitate to reach out for a professional drainage investigation. Contact Blocked Drains Swindon today to schedule your service and ensure your drainage system is functioning optimally.`,
 
-  "subService:cctv-drain-surveys:pre-purchase-survey": `At Blocked Drains Swindon, we offer a comprehensive Pre-Purchase Drain Survey tailored for potential homebuyers in Swindon and the surrounding areas. This service is designed to evaluate the condition of the drainage system in a property before finalising a purchase. Understanding the state of your drains can help you avoid unexpected expenses and maintain peace of mind as you embark on your new home journey.
+  "subService:cctv-drain-surveys:pre-purchase-survey": `# Pre-Purchase Drain Survey in Swindon – Don't Buy Drain Problems
 
-A Pre-Purchase Drain Survey is typically recommended when you are in the process of buying residential property, especially older homes, or properties that have had previous drainage issues. It is essential to uncover any underlying issues that may not be immediately visible, such as blockages, structural damage, or other defects in the drainage system. By identifying these problems early, you can negotiate repairs with the seller or prepare accordingly for any future maintenance, potentially saving you time and money in the long run.
+Buying a house? A pre-purchase drain survey could save you thousands. We provide fast, detailed drain checks for home buyers and property investors in Swindon.
 
-Our survey process is straightforward and efficient, using industry-standard techniques to gain a comprehensive understanding of the drain's condition. Upon request, our qualified drainage experts will arrange a convenient time to conduct the survey, typically using advanced technology such as CCTV cameras. This method allows us to inspect the interior of the pipes without the need for disruptive excavation. The cameras provide real-time images, allowing our technicians to assess any issues, such as cracks, tree root invasion, or significant buildups of debris.
+---
 
-In a typical UK home, the drainage systems can vary significantly, which is why our surveys are tailored to each individual property. Our team will evaluate the layout of the drains, the age of the system, as well as any previous maintenance records available. After completing the survey, we provide you with a detailed report outlining our findings, including recommendations for any necessary repairs or further investigations.
+## 📊 Why Book a Drain Survey Before You Buy?
 
-At Blocked Drains Swindon, we understand that moving into a new home is a significant milestone, and we aim to make the process as smooth as possible by providing you with reliable, factual information about your prospective property's drainage system.
+Standard property surveys don't cover underground drainage. That means you could move in to find:
 
-For expert drainage services in Swindon, including our Pre-Purchase Drain Survey, contact Blocked Drains Swindon today. Our team of professionals is ready to help ensure that your new home is a safe investment.`,
+- Collapsed or cracked pipes
+- Tree root intrusion or scale build-up
+- Hidden blockages or poor drainage design
+- Risk of future sewage backups or flooding
+
+Our drain survey highlights issues before you exchange contracts — giving you negotiation power or peace of mind.
+
+[Book a buyer's drain survey now →](/contact)
+
+---
+
+## 📄 What You Get
+
+Every pre-purchase survey includes:
+
+- High-definition CCTV footage of all accessible pipework  
+- Easy-to-read report with diagrams and issue log  
+- Risk grading and repair recommendations (if needed)  
+- Quote for any immediate or future work  
+- Delivery within 24–48 hours (faster on request)
+
+All reports are suitable for submission to solicitors, surveyors, and insurers.
+
+---
+
+## 💸 Fixed Pricing
+
+Pre-purchase drain surveys start at **£105 + VAT**, depending on:
+
+- Property size and access points  
+- Number of runs to inspect  
+- Report detail (basic or full insurer format)
+
+[Get a fixed quote →](/contact) or [See all pricing →](/pricing)
+
+---
+
+## 💬 Buyer FAQs
+
+**Do I really need a drain survey?**  
+Yes. Most building surveys exclude drains entirely. Our survey can catch costly repairs early.
+
+**How long does it take?**  
+Usually 1–2 hours on site. Reports delivered same day or next.
+
+**Will you tell me if repairs are urgent?**  
+Yes. We clearly flag anything needing immediate action.
+
+**Can I send this to my solicitor or agent?**  
+Absolutely. All files are digital, PDF and MP4, suitable for legal packs.
+
+---
+
+## 📍 Related Services
+
+- [Full CCTV Drain Surveys →](/services/cctv-drain-surveys)  
+- [Drain Repairs & Lining →](/services/blocked-drains/)  
+- [Emergency Drain Help →](/location/swindon/emergency-drain-services/flooding-emergency)
+
+---
+
+## 📞 Book a Pre-Purchase Drain Survey in Swindon
+
+**Call:** [01793 487489](tel:01793487489)  
+**Or [Book Online →](/contact)**
+
+Protect your property deal. Fast, clear, and surveyor-ready.`,
 
   "subService:drain-jetting:commercial-jetting": `Blocked Drains Swindon offers professional commercial drain jetting services designed to swiftly and effectively clear blocked drains across Swindon. Drain jetting is a high-pressure cleaning technique that uses a powerful water jet to remove stubborn blockages, debris, and buildup from drainage systems. This method is particularly beneficial for commercial properties, where the volume of waste and potential for blockages is typically greater than in residential settings.
 
