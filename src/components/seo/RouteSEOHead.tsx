@@ -20,6 +20,7 @@ import {
   shouldNoIndex,
   normalizeCanonicalPath,
 } from "@/seo/routeMeta";
+import { slugToTitle } from "@/lib/seoUtils";
 
 const BASE_URL = `https://${BRAND.domain}`;
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og/manchesterblockeddrain-og.jpg`;
@@ -42,13 +43,7 @@ interface RouteParams {
   slug?: string;
 }
 
-// Convert slug to readable title
-function slugToTitle(slug: string): string {
-  return slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+// Get SEO for dynamic routes
 
 // Get SEO for dynamic routes
 function getDynamicSeo(pathname: string, params: RouteParams) {

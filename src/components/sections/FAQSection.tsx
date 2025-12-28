@@ -6,14 +6,12 @@ import {
 } from "@/components/ui/accordion";
 import { AI_GENERATED_FAQS } from "@/config/staticContent";
 
-export const faqs = AI_GENERATED_FAQS;
-
 interface FAQSectionProps {
   showAll?: boolean;
 }
 
 export function FAQSection({ showAll = false }: FAQSectionProps) {
-  const displayFaqs = showAll ? faqs : faqs.slice(0, 4);
+  const displayFaqs = showAll ? AI_GENERATED_FAQS : AI_GENERATED_FAQS.slice(0, 4);
 
   return (
     <section className="section-padding">

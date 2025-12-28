@@ -1,16 +1,17 @@
 import { Layout } from "@/components/layout/Layout";
-import { FAQSection, faqs } from "@/components/sections/FAQSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { RouteSEOHead } from "@/components/seo/RouteSEOHead";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { AI_GENERATED_FAQS } from "@/config/staticContent";
 
 const FAQ = () => {
   return (
     <Layout>
       <RouteSEOHead />
       <SchemaScript schema={[
-        generateFAQSchema(faqs),
+        generateFAQSchema(AI_GENERATED_FAQS),
         generateBreadcrumbSchema([
           { name: "Home", url: "/" },
           { name: "FAQ", url: "/faq" },
