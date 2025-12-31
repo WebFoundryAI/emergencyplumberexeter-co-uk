@@ -29,12 +29,12 @@ function FormPlaceholder() {
 export function HeroWithForm() {
   return (
     <section className="hero-section relative overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Background image with subtle dark overlay for text readability */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 hero-overlay" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
       
       <div className="relative py-16 md:py-24">
