@@ -67,9 +67,14 @@ const LOCATIONS = [
 
 const BASE_URL = "https://manchesterblockeddrain.co.uk";
 
-function formatDate(_date: Date): string {
-  // Return current date for sitemap freshness
-  return "2025-12-31";
+// Format date as YYYY-MM-DD for sitemap lastmod
+function formatDate(date: Date): string {
+  return date.toISOString().split("T")[0];
+}
+
+// Get current date for static pages
+function getCurrentDate(): string {
+  return formatDate(new Date());
 }
 
 function generateUrlEntry(
@@ -110,27 +115,27 @@ Deno.serve(async (req) => {
       console.error("Error fetching blog posts:", error);
     }
 
-    const today = formatDate(new Date());
+    const today = getCurrentDate();
     const urls: string[] = [];
 
-    // Static pages (including llm.html for GEO/AI discovery)
-    // Note: /sitemap is noindex so excluded from XML sitemap
+    // Static pages with appropriate priorities
+    // Priority guide: 1.0 = homepage, 0.8-0.9 = main sections, 0.6-0.7 = secondary, 0.3 = legal
     const staticPages = [
-      { url: "/", priority: "1.0", changefreq: "weekly" },
-      { url: "/llm.html", priority: "0.5", changefreq: "monthly" },
-      { url: "/services", priority: "0.9", changefreq: "weekly" },
-      { url: "/locations", priority: "0.9", changefreq: "weekly" },
-      { url: "/about", priority: "0.7", changefreq: "monthly" },
-      { url: "/contact", priority: "0.8", changefreq: "monthly" },
-      { url: "/faq", priority: "0.6", changefreq: "monthly" },
-      { url: "/blog", priority: "0.7", changefreq: "daily" },
-      { url: "/privacy", priority: "0.3", changefreq: "yearly" },
-      { url: "/terms", priority: "0.3", changefreq: "yearly" },
-      { url: "/cookies", priority: "0.3", changefreq: "yearly" },
+      { url: "/", priority: "1.0", changefreq: "weekly", lastmod: today },
+      { url: "/services", priority: "0.9", changefreq: "weekly", lastmod: today },
+      { url: "/locations", priority: "0.9", changefreq: "weekly", lastmod: today },
+      { url: "/contact", priority: "0.8", changefreq: "monthly", lastmod: today },
+      { url: "/about", priority: "0.8", changefreq: "monthly", lastmod: today },
+      { url: "/faq", priority: "0.7", changefreq: "monthly", lastmod: today },
+      { url: "/blog", priority: "0.7", changefreq: "daily", lastmod: today },
+      { url: "/llm.html", priority: "0.5", changefreq: "monthly", lastmod: today },
+      { url: "/privacy", priority: "0.3", changefreq: "yearly", lastmod: "2025-01-01" },
+      { url: "/terms", priority: "0.3", changefreq: "yearly", lastmod: "2025-01-01" },
+      { url: "/cookies", priority: "0.3", changefreq: "yearly", lastmod: "2025-01-01" },
     ];
 
     for (const page of staticPages) {
-      urls.push(generateUrlEntry(page.url, page.priority, page.changefreq, today));
+      urls.push(generateUrlEntry(page.url, page.priority, page.changefreq, page.lastmod));
     }
 
     // Service pages
@@ -174,13 +179,13 @@ Deno.serve(async (req) => {
       }
     }
 
-    // Blog posts
+    // Blog posts - use actual updated_at for lastmod
     if (blogPosts && blogPosts.length > 0) {
       for (const post of blogPosts) {
         const lastmod = post.updated_at
           ? formatDate(new Date(post.updated_at))
           : today;
-        urls.push(generateUrlEntry(`/blog/${post.slug}`, "0.6", "monthly", lastmod));
+        urls.push(generateUrlEntry(`/blog/${post.slug}`, "0.5", "monthly", lastmod));
       }
     }
 
