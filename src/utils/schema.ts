@@ -68,14 +68,7 @@ export function getBaseBusinessSchema() {
         }
       }))
     },
-    "sameAs": BRAND.socialProfiles,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+    "sameAs": BRAND.socialProfiles
   };
 }
 

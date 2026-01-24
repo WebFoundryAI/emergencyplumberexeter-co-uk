@@ -143,7 +143,7 @@ Use [Google Rich Results Test](https://search.google.com/test/rich-results):
 
 | Page | Expected Schema |
 |------|-----------------|
-| Homepage `/` | LocalBusiness, FAQPage, AggregateRating, Review |
+| Homepage `/` | LocalBusiness, FAQPage |
 | Service pages | Service, LocalBusiness, BreadcrumbList |
 | Location pages | LocalBusiness, BreadcrumbList |
 | Contact page | ContactPage, LocalBusiness |
