@@ -11,13 +11,14 @@ interface Props {
   canonical?: string;
   image?: string;
   schema?: object | object[];
+  noindex?: boolean;
 }
 
 // Default SEO values as fallbacks
 const defaultTitle = `${BRAND.brandName} | 24/7 Drainage Services`;
 const defaultDescription = `Professional drain unblocking, CCTV surveys, and emergency drainage services across ${BRAND.serviceAreaLabel}. No call-out fee, fixed pricing. Call ${BRAND.phoneFormatted}.`;
 
-const { title = defaultTitle, description = defaultDescription, canonical, image, schema } = Astro.props;
+const { title = defaultTitle, description = defaultDescription, canonical, image, schema, noindex = false } = Astro.props;
 const siteUrl = `https://${BRAND.domain}`;
 // Always use non-www canonical URL - extract pathname from Astro.url if no canonical provided
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
@@ -37,6 +38,7 @@ const pageSchema = schema || getHomepageSchema();
 
   <title>{title}</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   <link rel="canonical" href={canonicalUrl} />
 
   <!-- Open Graph -->
@@ -61,7 +63,7 @@ const pageSchema = schema || getHomepageSchema();
   <script type="application/ld+json" set:html={serializeSchema(pageSchema)} />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="K-EecGB0etoqiVHnYYUt2Sc6LrEKjoGmykJD-HOd7fo" />
@@ -132,6 +134,8 @@ const pageSchema = schema || getHomepageSchema();
           id="mobile-menu-button"
           class="lg:hidden p-3 -mr-3"
           aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
         </button>
@@ -261,7 +265,8 @@ const pageSchema = schema || getHomepageSchema();
     const mobileMenu = document.getElementById('mobile-menu');
 
     menuButton?.addEventListener('click', () => {
-      mobileMenu?.classList.toggle('hidden');
+      const isHidden = mobileMenu?.classList.toggle('hidden');
+      menuButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
     });
   </script>
 </body>
