@@ -26,11 +26,17 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Create Cloudflare Pages project
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create manchester-blocked-drain-co-uk --production-branch main
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: |
-            pages project create manchester-blocked-drain-co-uk --production-branch main || true
-            pages deploy ./dist --project-name=manchester-blocked-drain-co-uk --branch=main
+          command: pages deploy ./dist --project-name=manchester-blocked-drain-co-uk --branch=main
