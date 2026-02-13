@@ -62,7 +62,7 @@ const displayNeighborhoods = locationData?.neighborhoods?.slice(0, 6) || [];
 const displayLandmarks = locationData?.landmarks?.slice(0, 3) || [];
 ---
 
-<BaseLayout title={title} description={description} canonical={`/locations/${location.slug}/${service.slug}/`} schema={pageSchema}>
+<BaseLayout title={title} description={description} canonical={`/locations/${location.slug}/${service.slug}/`} schema={pageSchema} noindex={!!location.noindex}>
   <!-- BreadcrumbList Schema -->
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BRAND } from '../data/brand';
 import { SERVICES } from '../data/services';
-import { LOCATIONS } from '../data/locations';
+import { INDEXED_LOCATIONS } from '../data/locations';
 import { BLOG_POSTS } from '../data/blog';
 import { getBreadcrumbSchema } from '../utils/schema';
 
@@ -41,12 +41,12 @@ const subServicePages = SERVICES.flatMap(service =>
   }))
 );
 
-const locationPages = LOCATIONS.map(location => ({
+const locationPages = INDEXED_LOCATIONS.map(location => ({
   url: `/locations/${location.slug}/`,
   name: location.name,
 }));
 
-const serviceLocationPages = LOCATIONS.flatMap(location =>
+const serviceLocationPages = INDEXED_LOCATIONS.flatMap(location =>
   SERVICES.map(service => ({
     url: `/locations/${location.slug}/${service.slug}/`,
     name: `${service.name} in ${location.name}`,
@@ -159,7 +159,7 @@ const totalPages =
       <div class="mt-12">
         <h2 class="text-xl font-semibold mb-4">Local Services ({serviceLocationPages.length})</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {LOCATIONS.map(location => (
+          {INDEXED_LOCATIONS.map(location => (
             <div>
               <h3 class="font-medium mb-2">{location.name}</h3>
               <ul class="space-y-1 text-sm">

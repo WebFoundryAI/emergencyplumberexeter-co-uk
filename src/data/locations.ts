@@ -4,6 +4,7 @@ export interface Location {
   countyOrRegion?: string;
   latitude: number;
   longitude: number;
+  noindex?: boolean;
 }
 
 export const PRIMARY_LOCATION: Location = {
@@ -43,6 +44,7 @@ export const LOCATIONS: Location[] = [
     countyOrRegion: "Greater Manchester",
     latitude: 53.5778,
     longitude: -2.4290,
+    noindex: true,
   },
   {
     slug: "oldham",
@@ -50,6 +52,7 @@ export const LOCATIONS: Location[] = [
     countyOrRegion: "Greater Manchester",
     latitude: 53.5409,
     longitude: -2.1114,
+    noindex: true,
   },
   {
     slug: "rochdale",
@@ -57,6 +60,7 @@ export const LOCATIONS: Location[] = [
     countyOrRegion: "Greater Manchester",
     latitude: 53.6158,
     longitude: -2.1560,
+    noindex: true,
   },
   {
     slug: "sale",
@@ -64,6 +68,7 @@ export const LOCATIONS: Location[] = [
     countyOrRegion: "Greater Manchester",
     latitude: 53.4242,
     longitude: -2.3223,
+    noindex: true,
   },
   {
     slug: "didsbury",
@@ -71,6 +76,7 @@ export const LOCATIONS: Location[] = [
     countyOrRegion: "Greater Manchester",
     latitude: 53.4162,
     longitude: -2.2282,
+    noindex: true,
   },
   {
     slug: "chorlton",
@@ -78,8 +84,11 @@ export const LOCATIONS: Location[] = [
     countyOrRegion: "Greater Manchester",
     latitude: 53.4400,
     longitude: -2.2723,
+    noindex: true,
   },
 ];
+
+export const INDEXED_LOCATIONS = LOCATIONS.filter((l) => !l.noindex);
 
 export function getLocationBySlug(slug: string): Location | undefined {
   return LOCATIONS.find((location) => location.slug === slug);

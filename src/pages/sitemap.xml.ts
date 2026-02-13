@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { BRAND } from '../data/brand';
 import { SERVICES } from '../data/services';
-import { LOCATIONS } from '../data/locations';
+import { INDEXED_LOCATIONS } from '../data/locations';
 import { BLOG_POSTS } from '../data/blog';
 
 // Generate at build time for static output
@@ -76,8 +76,8 @@ function generateSitemapUrls(): SitemapUrl[] {
     }
   }
 
-  // Location pages
-  for (const [i, location] of LOCATIONS.entries()) {
+  // Location pages (only indexed locations)
+  for (const [i, location] of INDEXED_LOCATIONS.entries()) {
     // Main location page (Manchester gets higher priority)
     const isManchester = location.slug === 'manchester';
     urls.push({
