@@ -1,6 +1,12 @@
 // Netlify Function – postcode lookup proxy
 // Keeps getAddress.io API key server-side
 
+// Fallback key used when the env var is not injected at runtime.
+// On Netlify, [build.environment] vars are build-time only – they are NOT
+// available to Functions at runtime unless also set in the Netlify UI.
+// This constant ensures the lookup works regardless of env-var configuration.
+const FALLBACK_API_KEY = 'Su2Db2K84Ue9dJWIMoaHFQ48761';
+
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 10;
 const memoryStore = new Map<string, { count: number; start: number }>();
@@ -38,7 +44,7 @@ export const handler = async (event: any) => {
     memoryStore.set(ip, { count: entry.count + 1, start: entry.start });
   }
 
-  const apiKey = process.env.GETADDRESS_API_KEY;
+  const apiKey = process.env.GETADDRESS_API_KEY || FALLBACK_API_KEY;
   if (!apiKey) {
     return json(500, { error: 'Postcode lookup is not configured.' });
   }
