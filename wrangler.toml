@@ -37,7 +37,7 @@ compatibility_date = "2024-12-20"
 [[d1_databases]]
 binding = "DB"
 database_name = "manchester-leads"
-database_id = ""  # paste your D1 database ID here after running: wrangler d1 create manchester-leads
+database_id = "011e48a0-e9a6-4cb8-a377-64dbb686e1f5"
 
 # Build Configuration
 [build]
