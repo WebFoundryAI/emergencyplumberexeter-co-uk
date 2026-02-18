@@ -58,7 +58,7 @@ const {
       </select>
     </div>
 
-    <div>
+    <div id={`${formId}-address-manual-wrap`}>
       <label class="block font-semibold mb-1" for={`${formId}-address`}>Address</label>
       <input class="w-full border border-border rounded-lg bg-white px-3 py-2" id={`${formId}-address`} name="address" type="text" autocomplete="street-address" placeholder="House number and street" />
       <p class="text-red-700 text-xs mt-0.5" id={`${formId}-address-error`}></p>
@@ -107,6 +107,7 @@ const {
       const errorList = document.getElementById(`${formId}-error-list`);
       const success = document.getElementById(`${formId}-success`);
       const addressLookupWrap = document.getElementById(`${formId}-address-lookup-wrap`);
+      const addressManualWrap = document.getElementById(`${formId}-address-manual-wrap`);
       const addressSelect = formElement.querySelector('select[name="addressLookup"]');
       const addressInput = formElement.querySelector('input[name="address"]');
 
@@ -193,8 +194,14 @@ const {
               }).join('');
           }
           if (addressLookupWrap) addressLookupWrap.classList.remove('hidden');
+          if (addressManualWrap) addressManualWrap.classList.add('hidden');
+          if (addressSelect instanceof HTMLSelectElement) {
+            addressSelect.focus();
+            try { addressSelect.showPicker(); } catch (_) {}
+          }
         } catch (err) {
           setFieldError('postcode', 'Could not find addresses. Please type your address manually.');
+          if (addressManualWrap) addressManualWrap.classList.remove('hidden');
         } finally {
           button.textContent = originalText;
           button.disabled = false;
@@ -207,6 +214,9 @@ const {
           const target = event.target;
           if (target instanceof HTMLSelectElement && addressInput instanceof HTMLInputElement && target.value) {
             addressInput.value = target.value;
+            if (addressLookupWrap) addressLookupWrap.classList.add('hidden');
+            if (addressManualWrap) addressManualWrap.classList.remove('hidden');
+            addressInput.readOnly = true;
           }
         });
       }
