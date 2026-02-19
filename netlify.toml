@@ -80,7 +80,7 @@
     Cache-Control = "public, max-age=86400, stale-while-revalidate=43200"
 
 [[headers]]
-  for = "/faq/*"
+  for = "/frequently-asked-questions/*"
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=43200"
 
@@ -122,6 +122,18 @@
   status = 301
   force = true
 
+
+[[redirects]]
+  from = "/faq/"
+  to = "/frequently-asked-questions/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq/*"
+  to = "/frequently-asked-questions/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/api/lead"

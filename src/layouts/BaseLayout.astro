@@ -12,12 +12,13 @@ interface Props {
   image?: string;
   schema?: object | object[];
   noindex?: boolean;
+  keywords?: string;
 }
 
 const defaultTitle = `${BRAND.brandName} | 24/7 Drainage Services`;
 const defaultDescription = `Professional drain unblocking, CCTV surveys, and emergency drainage services across ${BRAND.serviceAreaLabel}. No call-out fee, fixed pricing. Call ${BRAND.phoneFormatted}.`;
 
-const { title = defaultTitle, description = defaultDescription, canonical, image, schema, noindex = false } = Astro.props;
+const { title = defaultTitle, description = defaultDescription, canonical, image, schema, noindex = false, keywords } = Astro.props;
 const siteUrl = `https://${BRAND.domain}`;
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 const defaultOgImage = `${siteUrl}/images/og-default.jpg`;
@@ -33,6 +34,7 @@ const ogImage = image ? `${siteUrl}${image}` : defaultOgImage;
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonicalUrl} />
 

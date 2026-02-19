@@ -36,7 +36,7 @@ function generateSitemapUrls(): SitemapUrl[] {
   urls.push({ loc: '/locations/', priority: 0.9, changefreq: 'weekly', lastmod: getStaggeredDate(1) });
   urls.push({ loc: '/contact/', priority: 0.8, changefreq: 'monthly', lastmod: getStaggeredDate(3) });
   urls.push({ loc: '/about/', priority: 0.7, changefreq: 'monthly', lastmod: getStaggeredDate(5) });
-  urls.push({ loc: '/faq/', priority: 0.7, changefreq: 'monthly', lastmod: getStaggeredDate(4) });
+  urls.push({ loc: '/frequently-asked-questions/', priority: 0.7, changefreq: 'monthly', lastmod: getStaggeredDate(4) });
 
   // Blog pages
   urls.push({ loc: '/blog/', priority: 0.8, changefreq: 'weekly', lastmod: getStaggeredDate(0) });

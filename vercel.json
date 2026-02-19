@@ -6,6 +6,11 @@
       "has": [{ "type": "host", "value": "www.manchesterblockeddrain.co.uk" }],
       "destination": "https://manchesterblockeddrain.co.uk/:path*",
       "permanent": true
+    },
+    {
+      "source": "/faq/:path*",
+      "destination": "/frequently-asked-questions/:path*",
+      "permanent": true
     }
   ],
   "headers": [
@@ -115,7 +120,7 @@
       ]
     },
     {
-      "source": "/faq/(.*)",
+      "source": "/frequently-asked-questions/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

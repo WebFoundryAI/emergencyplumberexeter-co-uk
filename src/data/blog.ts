@@ -70,7 +70,7 @@ Call us on ${BRAND.phoneFormatted} for a no-obligation quote, or [contact us onl
   {
     slug: "prevent-blocked-drains-kitchen",
     title: "How to Prevent Blocked Kitchen Drains: A Complete Guide",
-    metaTitle: "Prevent Blocked Kitchen Drains | Tips from Manchester Drainage Experts",
+    metaTitle: "Prevent Kitchen Drain Blockages | Manchester Tips",
     metaDescription: "Stop kitchen drain blockages before they start. Expert tips on preventing grease buildup, food waste disposal, and maintaining clear drains in your Manchester home.",
     excerpt: "Kitchen drains are the most commonly blocked drains in UK homes. Learn how to prevent costly blockages with these simple daily habits.",
     content: `Kitchen drains handle more abuse than any other drain in your home. Between cooking oils, food scraps, soap residue, and everything else that goes down the sink, it's no wonder they're the most frequently blocked drains we see in Manchester homes.
@@ -141,7 +141,7 @@ Contact ${BRAND.brandName} on ${BRAND.phoneFormatted} for expert advice and assi
   {
     slug: "cctv-drain-survey-home-buyers",
     title: "Why Every Home Buyer Needs a CCTV Drain Survey",
-    metaTitle: "CCTV Drain Survey Before Buying a House | Essential Checks in Manchester",
+    metaTitle: "CCTV Drain Survey Before Buying | Manchester Guide",
     metaDescription: "Buying a house in Manchester? Discover why a pre-purchase CCTV drain survey could save you thousands and give you negotiating power.",
     excerpt: "A CCTV drain survey before buying a property can reveal hidden problems that cost thousands to fix. Here's what you need to know.",
     content: `When buying a house, most people focus on the obvious: the roof, windows, boiler, and electrics. But there's a hidden network of pipes beneath every property that's often overlooked until something goes wrong. A CCTV drain survey can reveal problems that standard home surveys miss entirely.
@@ -329,7 +329,7 @@ Call us immediately on ${BRAND.phoneFormatted} if you're experiencing a drain em
   {
     slug: "drain-jetting-vs-drain-rods",
     title: "Drain Jetting vs Drain Rods: Which Method is Best?",
-    metaTitle: "Drain Jetting vs Drain Rods | Professional Comparison for Manchester",
+    metaTitle: "Drain Jetting vs Rods | Manchester Comparison",
     metaDescription: "Should you use drain rods or high-pressure jetting to clear a blockage? Our Manchester drainage experts explain when each method works best.",
     excerpt: "Not all drain clearing methods are equal. Learn when jetting beats rods and why professionals prefer high-pressure water.",
     content: `When it comes to clearing blocked drains, there are two main methods: traditional drain rods and modern high-pressure water jetting. Each has its place, but understanding the differences can help you choose the right solution for your problem.

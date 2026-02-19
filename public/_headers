@@ -56,7 +56,7 @@
 /blog/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=43200
 
-/faq/*
+/frequently-asked-questions/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=43200
 
 /privacy/*

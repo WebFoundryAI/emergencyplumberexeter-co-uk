@@ -6,20 +6,22 @@ import { PAGE_FAQS } from '../data/faqs';
 import { getBreadcrumbSchema, getFAQSchema, getWebPageSchema, serializeSchema } from '../utils/schema';
 
 // SEO-optimized title (50-60 chars)
-const title = `Drainage FAQs | Common Questions About Drain Services`;
+const title = `Blocked Drains Manchester FAQ | Drainage Questions`;
 
 // SEO-optimized description (120-155 chars) with benefits and CTA
 const description = `Find answers to common questions about blocked drains, costs, response times, and emergency callouts in Manchester. Still need help? Call ${BRAND.phoneFormatted}.`;
 
+const keywords = "blocked drains Manchester FAQ, drain unblocking questions, drainage frequently asked questions Manchester";
+
 const breadcrumbItems = [
   { name: "Home", url: "/" },
-  { name: "FAQs", url: "/faq/" }
+  { name: "FAQs", url: "/frequently-asked-questions/" }
 ];
 
 const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems);
 const faqSchema = getFAQSchema(PAGE_FAQS);
 const webPageSchema = getWebPageSchema({
-  url: '/faq/',
+  url: '/frequently-asked-questions/',
   name: title,
   description: description,
   breadcrumb: breadcrumbItems
@@ -28,7 +30,7 @@ const webPageSchema = getWebPageSchema({
 const combinedPageSchema = [breadcrumbSchema, faqSchema, webPageSchema];
 ---
 
-<BaseLayout title={title} description={description} canonical="/faq/" schema={combinedPageSchema}>
+<BaseLayout title={title} description={description} canonical="/frequently-asked-questions/" schema={combinedPageSchema} keywords={keywords}>
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-overlay py-16 md:py-20">
