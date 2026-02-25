@@ -1,5 +1,5 @@
-# Cache-Control Headers
-# Netlify-style headers file
+# Cache-Control & Security Headers
+# Cloudflare Pages headers file
 
 # ============================================
 # SECURITY HEADERS (apply to all routes)

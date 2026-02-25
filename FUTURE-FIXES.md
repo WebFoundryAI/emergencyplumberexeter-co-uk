@@ -3,9 +3,9 @@
 ## Medium Priority
 
 - ~~**`.env` not in `.gitignore`**~~ – FIXED: `.env` added to `.gitignore` and untracked from git.
-- **API keys in Git history** – `GOOGLE_MAPS_API_KEY` is still in Git history. Rotate the key in Google Cloud Console and set it only via the hosting platform dashboard.
+- **API keys in Git history** – `GOOGLE_MAPS_API_KEY` was exposed in Git history. The key should be rotated in Google Cloud Console immediately. Set any new key only via the Cloudflare Pages dashboard (Settings → Environment Variables). Never commit API keys to the repository.
 - **Sign up for Ideal Postcodes account** – The `iddqd` community test key is limited to 15 requests/day/IP. Sign up at https://ideal-postcodes.co.uk for a production key and set `IDEAL_POSTCODES_API_KEY` in Cloudflare Pages dashboard.
-- ~~**Netlify lead function uses deprecated Supabase**~~ – DOCUMENTED: Deprecation comments added to `netlify/functions/`. The active backend is `functions/api/lead.ts` (Cloudflare D1).
+- ~~**Netlify lead function uses deprecated Supabase**~~ – REMOVED: Deprecated `netlify/functions/`, `netlify.toml`, `vercel.json`, and `supabase/` directory have been deleted. The active backend is `functions/api/lead.ts` (Cloudflare D1).
 
 ## Low Priority
 

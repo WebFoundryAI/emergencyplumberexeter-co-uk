@@ -16,7 +16,6 @@ export default defineConfig({
         'src/data/blog.ts',
         'src/data/faqs.ts',
         'functions/api/lead.ts',
-        'netlify/functions/api-lead.ts',
       ],
     },
   },

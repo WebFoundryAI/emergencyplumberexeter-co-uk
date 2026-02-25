@@ -230,13 +230,9 @@ npm run preview
 
 ### Static Hosting
 
-The site builds to static HTML/CSS/JS files in the `dist/` folder. Deploy to any static hosting provider:
+The site builds to static HTML/CSS/JS files in the `dist/` folder. It is deployed to **Cloudflare Pages**.
 
-- Netlify
-- Vercel
 - Cloudflare Pages
-- GitHub Pages
-- Any web server
 
 ### Custom Domain
 
