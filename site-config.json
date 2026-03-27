@@ -1,0 +1,14 @@
+{
+  "site_name": "Exeter Plumber",
+  "city": "Exeter",
+  "region": "Devon",
+  "country": "England",
+  "tier": 2,
+  "domain": "emergencyplumberexeter.co.uk",
+  "layout_variant": "hero-cta",
+  "theme_variant": "trust-blue",
+  "status": "active",
+  "github_repo": "https://github.com/WebFoundryAI/emergencyplumberexeter-co-uk.git",
+  "source_folder": "rank-to-rent-sites/emergencyplumberexeter-co-uk",
+  "notes": "Tier 2 site. Migrated from existing rank-to-rent-sites folder."
+}
